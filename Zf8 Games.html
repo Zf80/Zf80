@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Zf8 Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: darkgray;
+    }
+    
+    .animated-background {
+      width: 100%;
+      height: 600%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      animation: swirl 10s linear infinite;
+      background-image: radial-gradient(circle, purple, black);
+      overflow: hidden;
+    }
+
+    @keyframes swirl {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 10000px 10000px;
+      }
+    }
+
+    header {
+      background-color: #000000;
+      color: #d100fa;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 40px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .game-card {
+      background-color: #121111;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .game-card:hover {
+      background-color: #696464;
+    }
+
+    .game-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .game-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .game-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background-color: #beb8bf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: #000;
+      color: #4e4c4c;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+      display: none;
+    }
+
+    .upload-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      background-color: #000;
+      color: #514949;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="animated-background"></div>
+  <header>
+    <h1>Zf8 Games</h1>
+  </header>
+
+  <main>
+    <h2>Puzzle Games</h2>
+    <div class="game-grid">
+      <div class="game-card" onclick="loadGame('https://gabrielecirulli.github.io/2048/');.
+
+        <span class="game-icon">🧩</span>
+        <span class="game-title">2048</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://sudoku.com/');">
+        <span class="game-icon">🔢</span>
+        <span class="game-title">Sudoku</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.mahjong.com/');">
+        <span class="game-icon">🀄</span>
+        <span class="game-title">Mahjong</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.chess.com/');">
+        <span class="game-icon">♟️</span>
+        <span class="game-title">Chess</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.puzzleexpress.com/');">
+        <span class="game-icon">🔓</span>
+        <span class="game-title">Puzzle Express</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.jigsawplanet.com/');">
+        <span class="game-icon">🧩</span>
+        <span class="game-title">Jigsaw Puzzle</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.freecell.net/');">
+        <span class="game-icon">🎴</span>
+        <span class="game-title">Freecell</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.scrabble.com/');">
+        <span class="game-icon">🔠</span>
+        <span class="game-title">Scrabble</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.miniclip.com/games/magic-pen/en/');">
+        <span class="game-icon">✏️</span>
+        <span class="game-title">Magic Pen</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.speldome.com/games/mahjong-link/en/');">
+        <span class="game-icon">🀄</span>
+        <span class="game-title">Mahjong Link</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.puzzles.com/');">
+        <span class="game-icon">🧠</span>
+        <span class="game-title">Puzzles.com</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.brainbashers.com/');">
+        <span class="game-icon">🔓</span>
+        <span class="game-title">BrainBashers</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.hanjie-star.com/');">
+        <span class="game-icon">🔐</span>
+        <span class="game-title">Hanjie Star</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.unblockme.us/');">
+        <span class="game-icon">🚧</span>
+        <span class="game-title">Unblock Me</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.sudokukingdom.com/');">
+        <span class="game-icon">🔢</span>
+        <span class="game-title">Sudoku Kingdom</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.puzzlesociety.com/');">
+        <span class="game-icon">🧩</span>
+        <span class="game-title">Puzzle Society</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.sokobanonline.com/');">
+        <span class="game-icon">📦</span>
+        <span class="game-title">Sokoban Online</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.fill-a-pix.com/');">
+        <span class="game-icon">🖌️</span>
+        <span class="game-title">Fill-a-Pix</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.kakuro.com/');">
+        <span class="game-icon">🔢</span>
+        <span class="game-title">Kakuro</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.nonograms.org/');">
+        <span class="game-icon">🎨</span>
+        <span class="game-title">Nonograms</span>
+      </div>
+      <div class="game-card" onclick="loadGame('https://www.braingle.com/');">
+        <span class="game-icon">🔐</span>
+        <span class="game-title">Braingle</span>
+      </div>
+    </div>
+    <h2>Shooter Games</h2>
+<div class="game-grid">
+  <div class="game-card" onclick="loadGame('https://www.krunker.io/');">
+    <span class="game-icon">🎮</span>
+    <span class="game-title">Krunker</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://krunkerio.org/');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Krunker IO</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.shellshock.io/');">
+    <span class="game-icon">💣</span>
+    <span class="game-title">Shell Shockers</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://warmerise.com/');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Warmerise</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://surviv.io/');">
+    <span class="game-icon">🏹</span>
+    <span class="game-title">Surviv IO</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/pixel-forces');">
+    <span class="game-icon">🎮</span>
+    <span class="game-title">Pixel Forces</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/zombsroyale-io');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Zombs Royale</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/bullet-force-multiplayer');">
+    <span class="game-icon">💣</span>
+    <span class="game-title">Bullet Force</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/krunker-io');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Krunker IO 2</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/warbrokers-io');">
+    <span class="game-icon">🚁</span>
+    <span class="game-title">Warbrokers IO</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/hide-online');">
+    <span class="game-icon">🏭</span>
+    <span class="game-title">Hide Online</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/wild-west-showdown');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Wild West Showdown</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/zombie-hunters-arena');">
+    <span class="game-icon">🧟</span>
+    <span class="game-title">Zombie Hunters Arena</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/gun-night-io');">
+    <span class="game-icon">🌙</span>
+    <span class="game-title">Gun Night IO</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/furious-drift');">
+    <span class="game-icon">🚗</span>
+    <span class="game-title">Furious Drift</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/miniroyale-io');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Mini Royale IO</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/warmerise-online');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Warmerise Online</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/gunblood');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Gunblood</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/madalin-cars-multiplayer');">
+    <span class="game-icon">🚗</span>
+    <span class="game-title">Madalin Cars Multiplayer</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/crazy-shooters-2');">
+    <span class="game-icon">🔫</span>
+    <span class="game-title">Crazy Shooters 2</span>
+  </div>
+</div>
+<h2>Weird Games</h2>
+<div class="game-grid">
+  <div class="game-card" onclick="loadGame('https://www.foddy.net/2010/10/qwop/');">
+    <span class="game-icon">🏃‍♂️</span>
+    <span class="game-title">QWOP</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://pointerpointer.com/');">
+    <span class="game-icon">👆</span>
+    <span class="game-title">Pointer Pointer</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.boredbutton.com/');">
+    <span class="game-icon">🔘</span>
+    <span class="game-title">The Bored Button</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.omfgdogs.com/');">
+    <span class="game-icon">🐶</span>
+    <span class="game-title">OMFG Dogs</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://pointerpointer.com/');">
+    <span class="game-icon">🖼️</span>
+    <span class="game-title">Click Click Click</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://cat-bounce.com/');">
+    <span class="game-icon">🐱</span>
+    <span class="game-title">Cat Bounce</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.staggeringbeauty.com/');">
+    <span class="game-icon">🐛</span>
+    <span class="game-title">Staggering Beauty</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://zombo.com/');">
+    <span class="game-icon">🔊</span>
+    <span class="game-title">Zombo</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.fallingfalling.com/');">
+    <span class="game-icon">⬇️</span>
+    <span class="game-title">Falling Falling</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.incredibox.com/');">
+    <span class="game-icon">🎵</span>
+    <span class="game-title">Incredibox</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.buzzybuzz.biz/');">
+    <span class="game-icon">🐝</span>
+    <span class="game-title">Buzzy Buzz</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://procatinator.com/');">
+    <span class="game-icon">🐱</span>
+    <span class="game-title">Procatinator</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.pointerpointer.com/');">
+    <span class="game-icon">🖼️</span>
+    <span class="game-title">Pointer Pointer</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.koalastothemax.com/');">
+    <span class="game-icon">🐨</span>
+    <span class="game-title">Koalas to the Max</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.nobodyhere.com/justme/me.here');">
+    <span class="game-icon">🤔</span>
+    <span class="game-title">Nobody Here</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.patience-is-a-virtue.org/');">
+    <span class="game-icon">⌛</span>
+    <span class="game-title">Patience is a Virtue</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.koalastothemax.com/');">
+    <span class="game-icon">🐨</span>
+    <span class="game-title">Koalas to the Max</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://cat-bounce.com/');">
+    <span class="game-icon">🐱</span>
+    <span class="game-title">Cat Bounce</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://pointerpointer.com/');">
+    <span class="game-icon">🖼️</span>
+    <span class="game-title">Click Click Click</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.boredbutton.com/');">
+    <span class="game-icon">🔘</span>
+    <span class="game-title">The Bored Button</span>
+  </div>
+</div>
+<h2>Other Games</h2>
+<div class="game-grid">
+  <div class="game-card" onclick="loadGame('https://www.agame.com/game/fireboy-and-watergirl-the-forest-temple');">
+    <span class="game-icon">🔥💧</span>
+    <span class="game-title">Fireboy and Watergirl</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.miniclip.com/games/8-ball-pool-multiplayer/en/');">
+    <span class="game-icon">🎱</span>
+    <span class="game-title">8 Ball Pool</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.addictinggames.com/sports/dirtbike');">
+    <span class="game-icon">🏍️</span>
+    <span class="game-title">Dirt Bike</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.pokemon.com/us/pokemon-games/');">
+    <span class="game-icon">🔥⚡️💧</span>
+    <span class="game-title">Pokémon Games</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.minecraft.net/en-us/store/minecraft-java-edition');">
+    <span class="game-icon">🟩</span>
+    <span class="game-title">Minecraft</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/happy-wheels');">
+    <span class="game-icon">🚲</span>
+    <span class="game-title">Happy Wheels</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/plants-vs-zombies');">
+    <span class="game-icon">🌱🧟‍♂️</span>
+    <span class="game-title">Plants vs. Zombies</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/temple-run-2');">
+    <span class="game-icon">🏃‍♂️</span>
+    <span class="game-title">Temple Run 2</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/angry-birds');">
+    <span class="game-icon">🐦</span>
+    <span class="game-title">Angry Birds</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/super-smash-flash-2');">
+    <span class="game-icon">🎮</span>
+    <span class="game-title">Super Smash Flash 2</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/fruit-ninja');">
+    <span class="game-icon">🥭🍉🍓</span>
+    <span class="game-title">Fruit Ninja</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/geometry-dash-online');">
+    <span class="game-icon">▲</span>
+    <span class="game-title">Geometry Dash</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/sudoku-online');">
+    <span class="game-icon">🧩</span>
+    <span class="game-title">Sudoku Online</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/tetris');">
+    <span class="game-icon">🧱</span>
+    <span class="game-title">Tetris</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/solitaire');">
+    <span class="game-icon">🃏</span>
+    <span class="game-title">Solitaire</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/chess-online');">
+    <span class="game-icon">♟️</span>
+    <span class="game-title">Chess Online</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/checkers-classic');">
+    <span class="game-icon">🏁</span>
+    <span class="game-title">Checkers Classic</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/snake');">
+    <span class="game-icon">🐍</span>
+    <span class="game-title">Snake</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/pacman');">
+    <span class="game-icon">👻</span>
+    <span class="game-title">Pacman</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/mario-kart-tour');">
+    <span class="game-icon">🍄🏎️</span>
+    <span class="game-title">Mario Kart Tour</span>
+  </div>
+  <div class="game-card" onclick="loadGame('https://www.crazygames.com/game/roblox');">
+    <span class="game-icon">🤖</span>
+    <span class="game-title">Roblox</span>
+  </div>
+</div>
+
+
+
+    
+
+    <!-- Add other game categories here -->
+
+    <div id="game-screen" class="game-screen" style="display: none;"></div>
+
+    <button id="back-button" class="back-button" onclick="goHome()">Go Back</button>
+    <button id="upload-button" class="upload-button" onclick="uploadGame()">Upload Game</button>
+
+    <script>
+      function loadGame(url) {
+        var gameScreen = document.getElementById("game-screen");
+        var gameIframe = document.createElement("iframe");
+        gameIframe.className = "game-iframe";
+        gameIframe.src = url;
+        gameScreen.innerHTML = "";
+        gameScreen.appendChild(gameIframe);
+        gameScreen.style.display = "flex";
+
+        var backButton = document.getElementById("back-button");
+        backButton.style.display = "block";
+        
+        var backButton = document.getElementsByClassName("back-button");
+        for (var i = 0; i < backButton.length; i++) {
+          backButton[i].style.display = "block";
+        }
+        
+        var returnButton = document.createElement("button");
+        returnButton.className = "return-button";
+        returnButton.textContent = "Go Back";
+        returnButton.onclick = goHome;
+        gameScreen.appendChild(returnButton);
+      }
+    
+function goHome() {
+  var gameScreen = document.getElementById("game-screen");
+  gameScreen.style.display = "none";
+
+  var backButton = document.getElementsByClassName("back-button");
+  for (var i = 0; i < backButton.length; i++) {
+    backButton[i].style.display = "none";
+  }
+  
+  var returnButton = document.getElementsByClassName("return-button");
+  for (var i = 0; i < returnButton.length; i++) {
+    returnButton[i].remove();
+  }
+}
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          goHome();
+        }
+      });
+    </script>
+  </main>
+  <footer>
+    <p>&copy; Milos</p>
+  </footer>
+</body>
+
+</html>
